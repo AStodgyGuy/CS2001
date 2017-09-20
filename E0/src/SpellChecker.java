@@ -2,7 +2,7 @@ import java.util.Collections;
 import java.util.Arrays;
 
 /**
- * This class contains code the run the program
+ * This class contains code the run the program.
  * 
  * @author someone
  *
@@ -10,17 +10,17 @@ import java.util.Arrays;
 
  public class SpellChecker implements ISpellChecker {
 
-    String[] dictionary;
+    private String[] dictionary;
 
     /**
-     * This is the constructor for the SpellChecker object
+     * This is the constructor for the SpellChecker object.
      */
     public SpellChecker() {
         this.dictionary = DictionaryLoader.getInstance().loadDictionary();
     }
 
     /**
-     * Main method
+     * Main method.
      * 
      * @param args the word user wants to check
      */
@@ -30,14 +30,14 @@ import java.util.Arrays;
     }
 
     /**
-     * Method which runs the spell checker
+     * Method which runs the spell checker.
      * 
      * @param args the inputted string the user wants to look up
      */
     public void runChecker(String[] args) {
         try {
             String word = args[0].toLowerCase();
-            Arrays.sort(dictionary);
+            //Arrays.sort(dictionary);
             SpellCheckResult result = check(word);
 
             if (result.isCorrect()) {
@@ -48,7 +48,7 @@ import java.util.Arrays;
                     System.out.println(word + " not found - nearest neighbour " + result.getAfter());
                 } else if (result.getAfter().equals("")) {
                     System.out.println(word + " not found - nearest neighbour " + result.getBefore());
-                } else { 
+                } else {
                     System.out.println(word + " not found - nearest neighbour(s) " + result.getBefore() + " and " + result.getAfter());
                 }
             }
@@ -56,29 +56,30 @@ import java.util.Arrays;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Usage: java SpellChecker <word_to_check>");
         }
-        
     }
 
     /**
-     * Method which searches for the word in the dictionary
+     * Method which searches for the word in the dictionary.
      * 
      * @param word the word user wants to check
+     * @return a SpellCheckResult object which represents the results from the search
      */
     public SpellCheckResult check(String word) {
         int index = Arrays.binarySearch(dictionary, word);
         SpellCheckResult scr = null;
 
-        if (index > 0) {
-            scr = new SpellCheckResult(true, dictionary[index - 1], dictionary[index + 1]);
+        if (index >= 0) {
+            scr = new SpellCheckResult(true, "", "");
         } else {
             //error catching for binary search
             if (-index + 1 > dictionary.length) {
-                scr = new SpellCheckResult(false, dictionary[index - 1], "");
-            } else if (-index - 1 < 0) { 
-                scr = new SpellCheckResult(false, "", dictionary[index + 1]);
+                scr = new SpellCheckResult(false, dictionary[index - 2], "");
+            } else if (-index - 1 < 0) {
+                scr = new SpellCheckResult(false, "", dictionary[index - 1]);
+            } else {
+                scr = new SpellCheckResult(false, dictionary[-index - 2], dictionary[-index - 1]);
             }
         }
-
         return scr;
     }
  }
