@@ -30,20 +30,29 @@ import java.util.Arrays;
     }
 
     /**
-     * Main method
+     * Method which runs the spell checker
      * 
-     * @param args the word user wants to check
+     * @param args the inputted string the user wants to look up
      */
     public void runChecker(String[] args) {
         try {
             String word = args[0].toLowerCase();
             Arrays.sort(dictionary);
             SpellCheckResult result = check(word);
+
             if (result.isCorrect()) {
                 System.out.println(word + " correct");
             } else {
-                System.out.println(word + " not found - nearest neighbour(s) " + result.getBefore() + " and " + result.getAfter());
+                //messages if the word does not exist
+                if (result.getBefore().equals("")) {
+                    System.out.println(word + " not found - nearest neighbour " + result.getAfter());
+                } else if (result.getAfter().equals("")) {
+                    System.out.println(word + " not found - nearest neighbour " + result.getBefore());
+                } else { 
+                    System.out.println(word + " not found - nearest neighbour(s) " + result.getBefore() + " and " + result.getAfter());
+                }
             }
+        //word doesn't exist
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Usage: java SpellChecker <word_to_check>");
         }
@@ -51,18 +60,23 @@ import java.util.Arrays;
     }
 
     /**
-     * Main method
+     * Method which searches for the word in the dictionary
      * 
-     * @param args the word user wants to check
+     * @param word the word user wants to check
      */
     public SpellCheckResult check(String word) {
         int index = Arrays.binarySearch(dictionary, word);
-        SpellCheckResult scr;
-        //add error checker for index out of bounds
+        SpellCheckResult scr = null;
+
         if (index > 0) {
             scr = new SpellCheckResult(true, dictionary[index - 1], dictionary[index + 1]);
         } else {
-            scr = new SpellCheckResult(false, dictionary[-index - 1], dictionary[-index + 1]);
+            //error catching for binary search
+            if (-index + 1 > dictionary.length) {
+                scr = new SpellCheckResult(false, dictionary[index - 1], "");
+            } else if (-index - 1 < 0) { 
+                scr = new SpellCheckResult(false, "", dictionary[index + 1]);
+            }
         }
 
         return scr;
