@@ -6,13 +6,13 @@ import uk.ac.standrews.cs.cs2001.w03.common.ProductUnavailableException;
 
 /**
  * Interface for a simple vending machine ADT.
- *
  */
 public interface IVendingMachine {
 
 
     /**
      * Registers the specified product for sale in the vending machine.
+     *
      * @param vendingMachineProduct the item to register
      * @throws LaneCodeAlreadyInUseException if a item is already registered in the vending machine with matching lane code
      */
@@ -21,6 +21,7 @@ public interface IVendingMachine {
 
     /**
      * Unregisters the specified product from the vending machine.
+     *
      * @param vendingMachineProduct the item to remove
      * @throws LaneCodeNotRegisteredException if the item's lane code has not been registered for use in the vending machine for the given item
      */
@@ -29,6 +30,7 @@ public interface IVendingMachine {
 
     /**
      * Adds one item of stock to a vending machine lane.
+     *
      * @param laneCode the lane code of the product, e.g. A1, A2, A3, B1, ... in the vending machine
      * @throws LaneCodeNotRegisteredException if the lane code has not been registered for use in the vending machine
      */
@@ -39,7 +41,7 @@ public interface IVendingMachine {
      * Buys an item in the given vending machine lane.
      *
      * @param laneCode the lane code of the item, e.g. A1, A2, A3, B1, ... in the vending machine
-     * @throws ProductUnavailableException if the specified lane is empty
+     * @throws ProductUnavailableException    if the specified lane is empty
      * @throws LaneCodeNotRegisteredException if the given lane code has not been registered for use in the vending machine
      */
     void buyItem(String laneCode) throws ProductUnavailableException, LaneCodeNotRegisteredException;

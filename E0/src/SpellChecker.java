@@ -37,7 +37,7 @@ import java.util.Arrays;
     public void runChecker(String[] args) {
         try {
             String word = args[0].toLowerCase();
-            //Arrays.sort(dictionary);
+            Arrays.sort(dictionary); //sort dictitionary before binary search
             SpellCheckResult result = check(word);
 
             if (result.isCorrect()) {
