@@ -14,10 +14,9 @@ public class FSM {
         this.description = description;
     }
 
-
     /**
      * Method which changes the state based on the input seen
-     * @param ch the input seen
+     * @param s the input string seen
      */
     public void input(String s) throws UnrecognisedCharacterException{
 
@@ -37,7 +36,7 @@ public class FSM {
 
     /**
      * Method which returns a boolean whether the FSM is in accepting state or not
-     * @return isAccepting
+     * @return boolean whether the FSM is in accepting state or not
      */
     public boolean getIsAccepting() {
         if (description.getAcceptingStateList().contains(currentState)) {

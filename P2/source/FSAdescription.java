@@ -73,11 +73,9 @@ public class FSAdescription {
         try {
             convertedInteger = Integer.parseInt(stringToConvert);
         } catch (NumberFormatException e) {
+            //catch formatting error
         }
 
         return convertedInteger;
     }
-
-    
-
 }
