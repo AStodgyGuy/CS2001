@@ -46,3 +46,4 @@ public class FSM {
         return isAccepting;
     }
 }
+

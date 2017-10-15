@@ -16,7 +16,7 @@ public class FSAdescription {
      * Constructor for FSAdescription
      * @param pathToFile the path to the description file
      */
-    public FSAdescription(String pathToFile) throws IOException {
+    public FSAdescription(String pathToFile) throws IOException, UnrecognisedCharacterException {
         BufferedReader br = new BufferedReader(new FileReader(pathToFile));
         String line = br.readLine();
     
@@ -48,7 +48,7 @@ public class FSAdescription {
      * @param line the line to convert
      * @return new description state of that line
      */
-    private DescriptionState convertToState(String line) {
+    private DescriptionState convertToState(String line) throws UnrecognisedCharacterException {
         String[] array = line.split(" ");
 
         int intialState = convertStringToInt(array[0]);
@@ -67,15 +67,16 @@ public class FSAdescription {
      * @param stringToConvert the string that needs converting
      * @return the converted string
      */
-    private int convertStringToInt(String stringToConvert) {
+    private int convertStringToInt(String stringToConvert) throws UnrecognisedCharacterException {
         int convertedInteger = -1;
 
         try {
             convertedInteger = Integer.parseInt(stringToConvert);
         } catch (NumberFormatException e) {
-            //catch formatting error
+            throw new UnrecognisedCharacterException();
         }
 
         return convertedInteger;
     }
 }
+

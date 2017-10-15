@@ -14,7 +14,7 @@ public class fsainterpreter {
 	 */
 	public static void main(String args[]) {
 		//args length is not valid
-		if (args.length > 1 || args.length == 0) {
+		if (args.length != 1) {
 			System.out.println("Usage: java fsainterpreter <fsa description> <input.txt");
 		} else {
 			if (isAccepting(args[0])) {
@@ -44,19 +44,22 @@ public class fsainterpreter {
 				fsm.input(ch.toString());
 			}
 
+			//check whether the fsm is in accepting state or not
+			if (fsm.getIsAccepting()) {
+				return true;
+			} else {
+				return false;
+			}
+
 		//exceptions
 		} catch (IOException e) {
 			System.out.println("Cannot locate input file!");
 		} catch (UnrecognisedCharacterException e) {
 			return false;
 		}
-		
-		//check whether the FSM is in accepting state or not
-		if (fsm.getIsAccepting()) {
-			return true;
-		} else {
-			return false;
-		}
 
+		return false;
+		
 	}
 }
+
