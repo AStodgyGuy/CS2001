@@ -21,8 +21,11 @@ public class FSAdescription {
         String line = br.readLine();
     
         while (line != null) {
-            DescriptionState state = convertToState(line);
-            descriptionList.add(state);
+            line = line.trim();
+            if (!line.isEmpty()) {
+                DescriptionState state = convertToState(line);
+                descriptionList.add(state);
+            }
             line = br.readLine();
         }
     }
@@ -58,6 +61,8 @@ public class FSAdescription {
         if (array.length > 3) {
             if(array[3].equals("*")) {
                 acceptingStates.add(convertStringToInt(array[2]));
+            } else {
+                throw new UnrecognisedCharacterException();
             }
         }
 

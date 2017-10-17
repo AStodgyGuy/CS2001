@@ -36,6 +36,9 @@ public class fsainterpreter {
 			FSAdescription description = new FSAdescription(pathToDescription);
 			fsm = new FSM(description);
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			if (!br.ready()) {
+				return false;
+			}
 			String line = br.readLine();
 			char[] charArray = line.toCharArray();
 
