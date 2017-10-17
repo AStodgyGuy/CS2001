@@ -54,12 +54,10 @@ public class fsainterpreter {
 		//exceptions
 		} catch (IOException e) {
 			System.out.println("Cannot locate input file!");
+			return false;
 		} catch (UnrecognisedCharacterException e) {
 			return false;
-		}
-
-		return false;
-		
+		}		
 	}
 }
 

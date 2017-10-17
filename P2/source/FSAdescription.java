@@ -56,7 +56,9 @@ public class FSAdescription {
         int transitionState = convertStringToInt(array[2]);
 
         if (array.length > 3) {
-            acceptingStates.add(convertStringToInt(array[2]));
+            if(array[3].equals("*")) {
+                acceptingStates.add(convertStringToInt(array[2]));
+            }
         }
 
         return new DescriptionState(intialState, expression, transitionState);

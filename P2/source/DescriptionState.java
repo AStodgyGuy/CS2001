@@ -7,7 +7,6 @@ public class DescriptionState {
     private int startingState;
     private String expression;
     private int transitionState;
-    private boolean isAccepting;
 
     /**
      * Constructor for State class
