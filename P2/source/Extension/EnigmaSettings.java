@@ -68,15 +68,15 @@ public class EnigmaSettings {
      */
     public void incrementRotor() {
         //third rotor increments every time
-        thirdRotorSettings = rotorToChange(1, thirdRotorSettings.toCharArray());
         thirdRotor++;
+        thirdRotorSettings = rotorToChange(1, thirdRotorSettings.toCharArray());
         //change second rotor when third rotor transitions from V - W
         if (thirdRotor - thirdRotorNotch == 0) {
-            secondRotorSettings = rotorToChange(1, secondRotorSettings.toCharArray());
             secondRotor++;
+            secondRotorSettings = rotorToChange(1, secondRotorSettings.toCharArray());
             if (secondRotor - secondRotorNotch == 0) {
-                firstRotorSettings = rotorToChange(1, firstRotorSettings.toCharArray());
                 firstRotor++;
+                firstRotorSettings = rotorToChange(1, firstRotorSettings.toCharArray());
                 if (firstRotor - firstRotorNotch == 0) {
                     //nothing happens when first rotor reaches its notch
                 }
@@ -90,15 +90,15 @@ public class EnigmaSettings {
      * Method which validates numbers so that no number is above 26
      */
     private void validateNumbers() {
-        if (thirdRotor > 26) {
+        if (thirdRotor == 26) {
             thirdRotor = 0;
         }
 
-        if (secondRotor > 26) {
+        if (secondRotor == 26) {
             secondRotor = 0;
         }
 
-        if (firstRotor < 26) {
+        if (firstRotor == 26) {
             firstRotor = 0;
         }
     }

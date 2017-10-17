@@ -6,7 +6,7 @@ public class FSM {
 
     private EnigmaPairings ep;
     private EnigmaSettings es;
-    StringBuilder sb = new StringBuilder();
+    private StringBuilder sb = new StringBuilder();
 
     public FSM(EnigmaSettings settings, EnigmaPairings pairings) {
         this.ep = pairings;
