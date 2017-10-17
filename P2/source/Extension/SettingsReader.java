@@ -15,10 +15,15 @@ public class SettingsReader {
      * @return the EnigmaSettings object which represents the rotor settings
      */
     public EnigmaSettings readSettings(String pathToFile) throws InvalidFileException, IOException {
+        EnigmaSettings es = new EnigmaSettings();
         BufferedReader br = new BufferedReader(new FileReader(pathToFile));
         String line = br.readLine();
-        String[] array = line.split(" ");
-        EnigmaSettings es = new EnigmaSettings(convertStringToInt(array[0]), convertStringToInt(array[1]), convertStringToInt(array[2]));
+        while (line != null) {
+            String[] array = line.split(" ");
+            es = new EnigmaSettings(convertStringToInt(array[0]), convertStringToInt(array[1]), convertStringToInt(array[2]));
+            line = br.readLine();       
+        }
+
         return es;
     }
 

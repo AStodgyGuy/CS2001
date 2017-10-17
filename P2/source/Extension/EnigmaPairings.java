@@ -69,8 +69,12 @@ public class EnigmaPairings {
          */
         public Pair(String letter1, String letter2) throws InvalidFileException {
             if (letter1.length() == 1 || letter2.length() == 1) {
-                this.letter1 = letter1;
-                this.letter2 = letter2;
+                if (!letter1.equals(letter2)) {
+                    this.letter1 = letter1;
+                    this.letter2 = letter2;
+                } else {
+                    throw new InvalidFileException();
+                }
             } else {
                 throw new InvalidFileException();
             }

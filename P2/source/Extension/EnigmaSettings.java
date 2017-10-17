@@ -17,7 +17,9 @@ public class EnigmaSettings {
     private int firstRotorNotch = 17;
     private int secondRotorNotch = 5;
     private int thirdRotorNotch = 21;
-    private int firstRotor, secondRotor, thirdRotor;
+    private int firstRotor = 0;
+    private int secondRotor = 0;
+    private int thirdRotor = 0;
 
     /**
      * Constructor for EnigmaSettings class
@@ -38,28 +40,39 @@ public class EnigmaSettings {
     }
 
     /**
+     * Empty constructor for EnigmaSettings class
+     */
+    public EnigmaSettings() {}
+
+    /**
      * This method takes a string and ciphers it using the rotors
      * @param s the character to be ciphered
      * @return the ciphered character
      */
-    public String cipher(String s) {
+    public String cipher(String s) throws UnrecognisedCharacterException {
+
         int index;
         char c;
-        s = s.toUpperCase();
-        index = alphabet.indexOf(s.charAt(0));
-        c = thirdRotorSettings.charAt(index);
-        index = alphabet.indexOf(c);
-        c = secondRotorSettings.charAt(index);
-        index = alphabet.indexOf(c);
-        c = firstRotorSettings.charAt(index);
-        index = alphabet.indexOf(c);
-        c = reflectorString.charAt(index);
-        index = firstRotorSettings.indexOf(c);
-        c = alphabet.charAt(index);
-        index = secondRotorSettings.indexOf(c);
-        c = alphabet.charAt(index);
-        index = thirdRotorSettings.indexOf(c);
-    
+        try {
+            s = s.toUpperCase();
+            index = alphabet.indexOf(s.charAt(0));
+            c = thirdRotorSettings.charAt(index);
+            index = alphabet.indexOf(c);
+            c = secondRotorSettings.charAt(index);
+            index = alphabet.indexOf(c);
+            c = firstRotorSettings.charAt(index);
+            index = alphabet.indexOf(c);
+            c = reflectorString.charAt(index);
+            index = firstRotorSettings.indexOf(c);
+            c = alphabet.charAt(index);
+            index = secondRotorSettings.indexOf(c);
+            c = alphabet.charAt(index);
+            index = thirdRotorSettings.indexOf(c);
+        } catch (StringIndexOutOfBoundsException e) {
+            throw new UnrecognisedCharacterException();
+        }
+
+
         return Character.toString(alphabet.charAt(index));
     }
 

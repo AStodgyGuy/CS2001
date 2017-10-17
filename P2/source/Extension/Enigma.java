@@ -41,6 +41,8 @@ public class Enigma {
             System.out.println("Usage: java Enigma <enigmasettings.txt> <letterpairings.txt> <word to encode>");
         } catch (InvalidFileException e) {
             System.out.println("Invalid enigmasettings or letterpairings file");
+        } catch (UnrecognisedCharacterException e) {
+            System.out.println("Unrecognised input, this program only understands letters between A-Z");
         } catch (IOException e) {
             System.out.println("Invalid enigmasettings or letterpairings file");
         }

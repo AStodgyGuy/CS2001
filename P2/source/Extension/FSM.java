@@ -17,7 +17,7 @@ public class FSM {
      * Method which outputs a letter based on the enigma rules
      * @param s the input string seen
      */
-    public void input(String s) throws InvalidCommandLineArgumentException {
+    public void input(String s) throws InvalidCommandLineArgumentException, UnrecognisedCharacterException {
         char[] inputArray = s.toCharArray();
 
         String pair;
