@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * This class represents a simple Finite State Machine (FSM)
  */
