@@ -38,34 +38,43 @@ public class PriorityQueue implements IPriorityQueue {
                 first = newNode;
                 last = newNode;
             } else {
-
                 //while loop to determine the position of the new element in the queue according to its priority
                 QueueNode elementInQueue = first;
                 QueueNode nodeBefore = null;
-                while (true) {
-
+                try {
                     //priority is greater
-                    if (newNode.getElement().compareTo(elementInQueue.getElement()) > 0) {
-                        if (nodeBefore == null) {
-                            first = newNode;
-                            newNode.setNext(elementInQueue);
-                        } else {
-                            elementInQueue.setNext(newNode);
-                            newNode.setNext(nodeBefore);
+                    while (true) {
+                        if (element == null) {
+                            QueueNode oldLast = last;
+                            oldLast.setNext(newNode);
+                            last = newNode;
+                            break;
                         }
-                        break;
-                    }
+                        if (elementInQueue.getElement() == null || newNode.getElement().compareTo(elementInQueue.getElement()) > 0) {
+                            if (nodeBefore == null) {
+                                first = newNode;
+                                newNode.setNext(elementInQueue);
+                            } else {
+                                nodeBefore.setNext(newNode);
+                                newNode.setNext(elementInQueue);
+                            }
+                            break;
+                        }
+                        nodeBefore = elementInQueue;
+                        elementInQueue = elementInQueue.getNext();
 
-                    nodeBefore = elementInQueue;
-                    elementInQueue = elementInQueue.getNext();
+                        //condition when loop reaches end of queue
+                        if (elementInQueue == null) {
+                            QueueNode oldLast = last;
+                            oldLast.setNext(newNode);
+                            last = newNode;
+                            break;
+                        }
 
-                    //condition when loop reaches end of queue
-                    if (elementInQueue == null) {
-                        QueueNode oldLast = last;
-                        oldLast.setNext(newNode);
-                        last = newNode;
-                        break;
                     }
+                } catch (ClassCastException e) {
+                    //potential to add other error handling things here
+                    throw new ClassCastException();
                 }
             }
 

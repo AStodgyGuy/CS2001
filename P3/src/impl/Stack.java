@@ -134,6 +134,7 @@ public class Stack implements IStack {
     @Override
     public void clear() {
         head = null;
+        stackSize = 0;
     }
 
     /**

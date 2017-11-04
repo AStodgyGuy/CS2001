@@ -194,6 +194,24 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     }
 
     /**
+     * Tests adding random priority to the queue and then dequeing them 1 by 1.
+     * @throws QueueFullException if the queue has reached max size
+     * @throws QueueEmptyException if there are no elements in the queue to deque
+     */
+    @Test
+    public void testAddingRandomPriorityAndThenDequeAll() throws QueueFullException, QueueEmptyException {
+        IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
+        queue.enqueue(5);
+        queue.enqueue(6);
+        queue.enqueue(11);
+        queue.enqueue(7);
+        assertEquals(11, queue.dequeue());
+        assertEquals(7, queue.dequeue());
+        assertEquals(6,queue.dequeue());
+        assertEquals(5, queue.dequeue());
+    }
+
+    /**
      * Tests adding equal priority elements to the queue and since they have equal priority, the first element added into the queue should be the first element de-queued.
      * @throws QueueFullException if the queue is full
      * @throws QueueEmptyException if there are no elements in the que to deque
@@ -212,7 +230,86 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     }
 
     /**
-     * Class built for testing ordering of objects
+     * Test adding uncomparable objects, method throws a class cast exception.
+     * @throws QueueFullException if the queue is full
+     */
+    @Test (expected = ClassCastException.class)
+    public void testAddingUncomparableObjects() throws QueueFullException {
+        IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
+        queue.enqueue(4);
+        queue.enqueue(1);
+        queue.enqueue(9);
+        queue.enqueue(2);
+        queue.enqueue("Jon Lewis");
+    }
+
+    /**
+     * Test adding null objects into the queue.
+     * @throws QueueFullException if there are no elements in the que to deque
+     */
+    @Test
+    public void testAddingNullObjects() throws QueueFullException {
+        IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
+        queue.enqueue(null);
+        queue.enqueue(null);
+        assertEquals(2, queue.size());
+    }
+
+    /**
+     * Test removing null objects that were put into the queue.
+     * @throws QueueFullException if the queue is full
+     * @throws QueueEmptyException if there are no elements in the que to deque
+     */
+    @Test
+    public void testRemovingNullObjects() throws QueueFullException, QueueEmptyException {
+        IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
+        queue.enqueue(null);
+        queue.enqueue(null);
+        queue.enqueue(null);
+        queue.enqueue(null);
+        assertEquals(null, queue.dequeue());
+        assertEquals(3, queue.size());
+    }
+
+    /**
+     * Test which puts null and integers in the same queue.
+     * @throws QueueFullException if the queue is full
+     * @throws QueueEmptyException if there are no elements in the que to deque
+     */
+    @Test
+    public void testAddNullAndInteger() throws QueueFullException, QueueEmptyException {
+        IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
+        queue.enqueue(8);
+        queue.enqueue(9);
+        queue.enqueue(null);
+        queue.enqueue(13);
+        queue.enqueue(14);
+        queue.enqueue(null);
+        queue.enqueue(10);
+        assertEquals(7, queue.size());
+        assertEquals(14, queue.dequeue());
+        assertEquals(13, queue.dequeue());
+        assertEquals(10, queue.dequeue());
+    }
+
+    /**
+     * Test which puts null, integers and strings in the same queue test expected to throw ClassCastException
+     * @throws QueueFullException if the queue is full
+     * @throws QueueEmptyException if there are no elements in the que to deque
+     */
+    @Test (expected = ClassCastException.class)
+    public void testAddNullAndIntegerAndString() throws QueueFullException, QueueEmptyException {
+        IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
+        queue.enqueue(8);
+        queue.enqueue(9);
+        queue.enqueue(null);
+        queue.enqueue("hello");
+        queue.enqueue(null);
+        queue.enqueue(10);
+    }
+
+    /**
+     * Class built for testing ordering of objects.
      */
     private class TestObject implements Comparable<TestObject>{
 
@@ -224,16 +321,16 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
             this.insertionValue = insertionValue;
         }
 
-        public int getValue() {
+        int getValue() {
             return value;
         }
 
-        public String getInsertionValue() {
+        String getInsertionValue() {
             return insertionValue;
         }
 
         /**
-         * Method which compares one test object to another
+         * Method which compares one test object to another.
          * @param other the other object to compare to
          * @return the integer value whether one is greater than, equal to or less than the object
          */
