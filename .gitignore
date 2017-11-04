@@ -2,3 +2,6 @@
 *.fsa
 *.txt
 *.in
+*.xml
+*.iml
+P3/.idea
