@@ -11,14 +11,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/src$uk_ac_standrews_cs_cs2001_w03_test_in_cs2001.coverage" NAME="uk.ac.standrews.cs.cs2001.w03.test in cs2001 Coverage Results" MODIFIED="1506972266033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>uk.ac.standrews.cs.cs2001.w03.test.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/src$uk_ac_standrews_cs_cs2001_w03_in_cs2001.coverage" NAME="uk.ac.standrews.cs.cs2001.w03 in cs2001 Coverage Results" MODIFIED="1507050405566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>uk.ac.standrews.cs.cs2001.w03.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/src$uk_ac_standrews_cs_cs2001_w03_impl_in_cs2001.coverage" NAME="uk.ac.standrews.cs.cs2001.w03.impl in cs2001 Coverage Results" MODIFIED="1506972201833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>uk.ac.standrews.cs.cs2001.w03.impl.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/src$uk_ac_standrews_cs_cs2001_w03_test_in_cs2001.coverage" NAME="uk.ac.standrews.cs.cs2001.w03.test in cs2001 Coverage Results" MODIFIED="1506972266033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>uk.ac.standrews.cs.cs2001.w03.test.*</FILTER>
     </SUITE>
   </component>
   <component name="FileEditorManager">
@@ -26,8 +26,8 @@
       <file leaf-file-name="Tests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/test/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="724">
-              <caret line="768" column="0" lean-forward="false" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+            <state relative-caret-position="-187">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -36,7 +36,7 @@
       <file leaf-file-name="VendingMachine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/impl/VendingMachine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
+            <state relative-caret-position="1207">
               <caret line="80" column="62" lean-forward="false" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
               <folding>
                 <marker date="1507047930663" expanded="true" signature="8034:8174" ph="{...}" />
@@ -48,11 +48,10 @@
       <file leaf-file-name="ProductRecord.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/impl/ProductRecord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1062">
+            <state relative-caret-position="850">
               <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
               <folding>
                 <marker date="1506996331185" expanded="true" signature="1750:1863" ph="/**...*/" />
-                <marker date="1506996331185" expanded="true" signature="1939:2187" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -61,7 +60,7 @@
       <file leaf-file-name="IVendingMachineProduct.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/interfaces/IVendingMachineProduct.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="119">
               <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding>
                 <marker date="1506996331268" expanded="true" signature="51:138" ph="/**...*/" />
@@ -74,15 +73,15 @@
       <file leaf-file-name="IVendingMachine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/interfaces/IVendingMachine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
+            <state relative-caret-position="1139">
               <caret line="94" column="46" lean-forward="false" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
               <folding>
+                <element signature="docComment;method#getNumberOfProducts#0;class#IVendingMachine#0" expanded="false" />
+                <element signature="docComment;method#getTotalNumberOfItems#0;class#IVendingMachine#0" expanded="false" />
+                <element signature="docComment;method#getNumberOfItems#0;class#IVendingMachine#0" expanded="false" />
+                <element signature="docComment;method#getNumberOfSales#0;class#IVendingMachine#0" expanded="false" />
                 <marker date="1506996330937" expanded="true" signature="276:329" ph="/**...*/" />
                 <marker date="1506996330937" expanded="false" signature="1745:1908" ph="/**...*/" />
-                <marker date="1506996330937" expanded="false" signature="2017:2390" ph="/**...*/" />
-                <marker date="1506996330937" expanded="false" signature="2428:2736" ph="/**...*/" />
-                <marker date="1506996330937" expanded="false" signature="2776:3158" ph="/**...*/" />
-                <marker date="1506996330937" expanded="false" signature="3246:3596" ph="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -91,7 +90,7 @@
       <file leaf-file-name="VendingMachineProduct.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/impl/VendingMachineProduct.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="323">
               <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding>
                 <marker date="1506996331017" expanded="true" signature="118:228" ph="/**...*/" />
@@ -162,8 +161,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,14 +208,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../W03-JUnit-Extension" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -452,7 +451,8 @@
     <option name="totallyTimeSpent" value="12735000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -461,23 +461,23 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284974" sideWeight="0.17604166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4478261" sideWeight="0.7421875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22083333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22334754" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3336887" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31823027" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -565,7 +565,6 @@
           <caret line="61" column="75" lean-forward="false" selection-start-line="61" selection-start-column="75" selection-end-line="61" selection-end-column="75" />
           <folding>
             <marker date="1506996331185" expanded="true" signature="1750:1863" ph="/**...*/" />
-            <marker date="1506996331185" expanded="true" signature="1939:2187" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -633,7 +632,6 @@
           <caret line="61" column="75" lean-forward="false" selection-start-line="61" selection-start-column="75" selection-end-line="61" selection-end-column="75" />
           <folding>
             <marker date="1506996331185" expanded="true" signature="1750:1863" ph="/**...*/" />
-            <marker date="1506996331185" expanded="true" signature="1939:2187" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -680,7 +678,6 @@
           <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <marker date="1506996331185" expanded="true" signature="1750:1863" ph="/**...*/" />
-            <marker date="1506996331185" expanded="true" signature="1939:2187" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -734,7 +731,6 @@
           <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <marker date="1506996331185" expanded="true" signature="1750:1863" ph="/**...*/" />
-            <marker date="1506996331185" expanded="true" signature="1939:2187" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -773,12 +769,12 @@
         <state relative-caret-position="561">
           <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
+            <element signature="docComment;method#getNumberOfProducts#0;class#IVendingMachine#0" expanded="false" />
+            <element signature="docComment;method#getTotalNumberOfItems#0;class#IVendingMachine#0" expanded="false" />
+            <element signature="docComment;method#getNumberOfItems#0;class#IVendingMachine#0" expanded="false" />
+            <element signature="docComment;method#getNumberOfSales#0;class#IVendingMachine#0" expanded="false" />
             <marker date="1506996330937" expanded="true" signature="276:329" ph="/**...*/" />
             <marker date="1506996330937" expanded="false" signature="1745:1908" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="2017:2390" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="2428:2736" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="2776:3158" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="3246:3596" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -821,7 +817,6 @@
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <marker date="1506996331185" expanded="true" signature="1750:1863" ph="/**...*/" />
-            <marker date="1506996331185" expanded="true" signature="1939:2187" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -888,33 +883,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/impl/ProductRecord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
+        <state relative-caret-position="850">
           <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
           <folding>
             <marker date="1506996331185" expanded="true" signature="1750:1863" ph="/**...*/" />
-            <marker date="1506996331185" expanded="true" signature="1939:2187" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/interfaces/IVendingMachine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
+        <state relative-caret-position="1139">
           <caret line="94" column="46" lean-forward="false" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
           <folding>
+            <element signature="docComment;method#getNumberOfProducts#0;class#IVendingMachine#0" expanded="false" />
+            <element signature="docComment;method#getTotalNumberOfItems#0;class#IVendingMachine#0" expanded="false" />
+            <element signature="docComment;method#getNumberOfItems#0;class#IVendingMachine#0" expanded="false" />
+            <element signature="docComment;method#getNumberOfSales#0;class#IVendingMachine#0" expanded="false" />
             <marker date="1506996330937" expanded="true" signature="276:329" ph="/**...*/" />
             <marker date="1506996330937" expanded="false" signature="1745:1908" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="2017:2390" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="2428:2736" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="2776:3158" ph="/**...*/" />
-            <marker date="1506996330937" expanded="false" signature="3246:3596" ph="/**...*/" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/impl/VendingMachine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
+        <state relative-caret-position="1207">
           <caret line="80" column="62" lean-forward="false" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
           <folding>
             <marker date="1507047930663" expanded="true" signature="8034:8174" ph="{...}" />
@@ -924,7 +918,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/impl/VendingMachineProduct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="323">
           <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
           <folding>
             <marker date="1506996331017" expanded="true" signature="118:228" ph="/**...*/" />
@@ -936,7 +930,7 @@
     <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/interfaces/IVendingMachineProduct.class" />
     <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/interfaces/IVendingMachineProduct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="119">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding>
             <marker date="1506996331268" expanded="true" signature="51:138" ph="/**...*/" />
@@ -947,8 +941,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uk/ac/standrews/cs/cs2001/w03/test/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="768" column="0" lean-forward="false" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+        <state relative-caret-position="-187">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding />
         </state>
       </provider>
