@@ -34,6 +34,7 @@ public class PriorityQueue implements IPriorityQueue {
 
         if (queueSize + 1 <= maxSize) {
             QueueNode newNode = new QueueNode(element);
+            //first element in the queue to be enqueued
             if (isEmpty()) {
                 first = newNode;
                 last = newNode;

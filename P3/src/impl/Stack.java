@@ -39,27 +39,33 @@ public class Stack implements IStack {
      */
     @Override
     public void push(Object element) throws StackOverflowException {
-        StackNode node = new StackNode(element);
 
+        //double stack length of 0 check
+        if (doubleStackArray.length == 0 || positionInArray == doubleStackArray.length || positionInArray < 0) {
+            throw new StackOverflowException();
+        }
+
+        StackNode node = new StackNode(element);
         //check if doubleStackArray is empty at position of insertion
         if (doubleStackArray[positionInArray] == null) {
             if (isEmpty()) {
                 head = node;
-                doubleStackArray[positionInArray] = element;
+                doubleStackArray[positionInArray] = new Object();
             } else {
+                doubleStackArray[positionInArray] = new Object();
                 node.setNext(head);
                 head = node;
+            }
+
+            if (isFirstStack) {
+                if (positionInArray + 1 < doubleStackArray.length) positionInArray++;
+            } else {
+                if (positionInArray - 1 >= 0) positionInArray--;
             }
 
             stackSize++;
         } else {
             throw new StackOverflowException();
-        }
-
-        if (isFirstStack) {
-            positionInArray++;
-        } else {
-            positionInArray--;
         }
 
     }
@@ -129,12 +135,23 @@ public class Stack implements IStack {
     }
 
     /**
-     * Removes all elements from the stack.
+     * Removes all elements from the stack and removes the stack elements from the DoubleStack array.
      */
     @Override
     public void clear() {
         head = null;
         stackSize = 0;
+        if (isFirstStack) {
+            for (int i = positionInArray; i > -1; i--) {
+                doubleStackArray[i] = null;
+            }
+            positionInArray = 0;
+        } else {
+            for (int i = positionInArray; i < doubleStackArray.length; i++) {
+                doubleStackArray[i] = null;
+            }
+            positionInArray = doubleStackArray.length - 1;
+        }
     }
 
     /**
@@ -160,5 +177,6 @@ public class Stack implements IStack {
         Object getObject() {
             return element;
         }
+
     }
 }
