@@ -11,9 +11,8 @@ public class Stack implements IStack {
 
     private boolean isFirstStack;
     private int positionInArray;
-    private int stackSize = 0;
-    private int stackHead = -1;
-    private Object[] stackArray;
+    private  int stackSize;
+    private StackNode head;
     private Object[] doubleStackArray;
 
     /**
@@ -25,7 +24,6 @@ public class Stack implements IStack {
     public Stack(Object[] doubleStackArray, boolean isFirstStack) {
         this.doubleStackArray = doubleStackArray;
         this.isFirstStack = isFirstStack;
-        this.stackArray = new Object[doubleStackArray.length];
         if (isFirstStack) {
             positionInArray = 0;
         } else {
@@ -47,10 +45,17 @@ public class Stack implements IStack {
             throw new StackOverflowException();
         }
 
+        StackNode node = new StackNode(element);
+        //check if doubleStackArray is empty at position of insertion
         if (doubleStackArray[positionInArray] == null) {
-            stackSize++;
-            stackArray[++stackHead] = element;
-            doubleStackArray[positionInArray] = new Object();
+            if (isEmpty()) {
+                head = node;
+                doubleStackArray[positionInArray] = new Object();
+            } else {
+                doubleStackArray[positionInArray] = new Object();
+                node.setNext(head);
+                head = node;
+            }
 
             if (isFirstStack) {
                 if (positionInArray + 1 < doubleStackArray.length) positionInArray++;
@@ -58,9 +63,11 @@ public class Stack implements IStack {
                 if (positionInArray - 1 >= 0) positionInArray--;
             }
 
+            stackSize++;
         } else {
             throw new StackOverflowException();
         }
+
     }
 
     /**
@@ -71,25 +78,22 @@ public class Stack implements IStack {
      */
     @Override
     public Object pop() throws StackEmptyException {
-        if (stackArray.length > 0) {
-            //check if the stack is empty
-            if (stackSize > 0) {
-                doubleStackArray[positionInArray] = null; //remove the object in the internal array
-                stackSize--;
-                Object result = stackArray[stackHead];
-                stackArray[stackHead] = null;
-                stackHead--;
-                //change the pointer to reflect a removed object in the internal array
-                if (isFirstStack) {
-                    positionInArray--;
-                } else {
-                    positionInArray++;
-                }
+        StackNode headReference = head;
 
-                return result;
+        //check if the stack is empty
+        if (headReference != null) {
+            doubleStackArray[positionInArray] = null; //remove the object in the internal array
+            head = head.getNext(); //change the head to the next element in the stack
+            stackSize--;  //decrease the stack size
+
+            //change the pointer to reflect a removed object in the internal array
+            if (isFirstStack) {
+                positionInArray--;
             } else {
-                throw new StackEmptyException();
+                positionInArray++;
             }
+
+            return headReference.getObject();
         } else {
             throw new StackEmptyException();
         }
@@ -103,8 +107,8 @@ public class Stack implements IStack {
      */
     @Override
     public Object top() throws StackEmptyException {
-        if (stackHead != -1) {
-            return stackArray[stackHead];
+        if (head != null) {
+            return head.getObject();
         } else {
             throw new StackEmptyException();
         }
@@ -135,7 +139,8 @@ public class Stack implements IStack {
      */
     @Override
     public void clear() {
-        stackArray = new Object[doubleStackArray.length];
+        head = null;
+        stackSize = 0;
         if (isFirstStack) {
             for (int i = positionInArray; i > -1; i--) {
                 doubleStackArray[i] = null;
@@ -147,7 +152,31 @@ public class Stack implements IStack {
             }
             positionInArray = doubleStackArray.length - 1;
         }
+    }
 
-        stackSize = 0;
+    /**
+     * Private inner class to represent a node in a stack.
+     */
+    private class StackNode {
+
+        private Object element;
+        private StackNode next;
+
+        StackNode(Object element) {
+            this.element = element;
+        }
+
+        StackNode getNext() {
+            return next;
+        }
+
+        void setNext(StackNode next) {
+            this.next = next;
+        }
+
+        Object getObject() {
+            return element;
+        }
+
     }
 }

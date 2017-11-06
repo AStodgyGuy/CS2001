@@ -10,10 +10,9 @@ import interfaces.IPriorityQueue;
 public class PriorityQueue implements IPriorityQueue {
 
     private int maxSize;
+    private Comparable[] queueArray;
     private int queueSize = 0;
-    private QueueNode first;
-    private QueueNode last;
-
+    private int queueHead = 0;
     /**
      * Public constructor for Priority Queue.
      *
@@ -21,6 +20,7 @@ public class PriorityQueue implements IPriorityQueue {
      */
     public PriorityQueue(int maxSize) {
         this.maxSize = maxSize;
+        queueArray = new Comparable[maxSize];
     }
 
     /**
@@ -32,55 +32,42 @@ public class PriorityQueue implements IPriorityQueue {
     @Override
     public void enqueue(Comparable element) throws QueueFullException {
 
-        if (queueSize + 1 <= maxSize) {
-            QueueNode newNode = new QueueNode(element);
-            //first element in the queue to be enqueued
+        //check for max size of queue
+        if (queueSize != maxSize) {
+            //first element into the queue
             if (isEmpty()) {
-                first = newNode;
-                last = newNode;
+                queueArray[queueHead] = element;
+                queueSize++;
+
+            //all other elements
             } else {
-                //while loop to determine the position of the new element in the queue according to its priority
-                QueueNode elementInQueue = first;
-                QueueNode nodeBefore = null;
-                try {
-                    //priority is greater
-                    while (true) {
-                        if (element == null) {
-                            QueueNode oldLast = last;
-                            oldLast.setNext(newNode);
-                            last = newNode;
-                            break;
-                        }
-                        if (elementInQueue.getElement() == null || newNode.getElement().compareTo(elementInQueue.getElement()) > 0) {
-                            if (nodeBefore == null) {
-                                first = newNode;
-                                newNode.setNext(elementInQueue);
-                            } else {
-                                nodeBefore.setNext(newNode);
-                                newNode.setNext(elementInQueue);
+                if (element == null) {
+                    queueArray[queueSize] = element;
+                    queueSize++;
+                } else {
+                    boolean flag = true;
+                    Comparable oldElement = null;
+                    for (int i = queueHead; i <= queueSize; i++) {
+                        //flag to determine when to shift all elements
+                        if (flag) {
+                            //priority is greater
+                            if (queueArray[i] == null || element.compareTo(queueArray[i]) > 0 ) {
+                                oldElement = queueArray[i];
+                                queueArray[i] = element;
+                                flag = false;
                             }
-                            break;
-                        }
-                        nodeBefore = elementInQueue;
-                        elementInQueue = elementInQueue.getNext();
 
-                        //condition when loop reaches end of queue
-                        if (elementInQueue == null) {
-                            QueueNode oldLast = last;
-                            oldLast.setNext(newNode);
-                            last = newNode;
-                            break;
+                        //shifting elements after adding the greater priority one in
+                        } else {
+                            Comparable oldElementRef = queueArray[i];
+                            queueArray[i] = oldElement;
+                            oldElement = oldElementRef;
                         }
-
                     }
-                } catch (ClassCastException e) {
-                    //potential to add other error handling things here
-                    throw new ClassCastException();
+                    queueSize++;
+
                 }
             }
-
-            queueSize++;
-
         } else {
             throw new QueueFullException();
         }
@@ -95,11 +82,21 @@ public class PriorityQueue implements IPriorityQueue {
      */
     @Override
     public Comparable dequeue() throws QueueEmptyException {
+
+        //check if queue is empty
         if (!isEmpty()) {
-            QueueNode firstReference = first;
-            first = first.getNext();
+            //the result to return
+            Comparable result = queueArray[queueHead];
+            Comparable oldElement = null;
+            Comparable oldElementRef = oldElement;
+            //shift all elements of the queue up one
+            for (int i = queueSize - 1; i >= queueHead; i--) {
+                oldElementRef = queueArray[i];
+                queueArray[i] = oldElement;
+                oldElement = oldElementRef;
+            }
             queueSize--;
-            return firstReference.getElement();
+            return result;
         } else {
             throw new QueueEmptyException();
         }
@@ -130,31 +127,8 @@ public class PriorityQueue implements IPriorityQueue {
      */
     @Override
     public void clear() {
-        first = null;
+        queueArray = new Comparable[maxSize];
         queueSize = 0;
     }
 
-    /**
-     * Private inner class to represent a nodes in a queue.
-     */
-    private class QueueNode {
-        private Comparable element;
-        private QueueNode next;
-
-        QueueNode(Comparable element) {
-            this.element = element;
-        }
-
-        Comparable getElement() {
-            return element;
-        }
-
-        void setNext(QueueNode next) {
-            this.next = next;
-        }
-
-        QueueNode getNext() {
-            return next;
-        }
-    }
 }
