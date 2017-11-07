@@ -1,7 +1,6 @@
 package interfaces;
 
 import common.QueueEmptyException;
-import common.QueueFullException;
 
 /**
  * Simple priority queue interface.
@@ -13,9 +12,8 @@ public interface IPriorityQueue {
      * Adds an element to the queue.
      *
      * @param element the element to be queued
-     * @throws QueueFullException if there is no room in the queue for the new element
      */
-    void enqueue(Comparable element) throws QueueFullException;
+    void enqueue(Comparable element);
 
     /**
      * Removes the largest element.

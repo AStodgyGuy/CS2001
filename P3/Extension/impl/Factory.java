@@ -38,12 +38,11 @@ public final class Factory implements IFactory {
 
     /**
      * This method creates an instance of {@link IPriorityQueue}.
-     * @param maxSize the maximum size of queue
      * @return the priority queue
      */
     @Override
-    public IPriorityQueue makePriorityQueue(int maxSize) {
-        return new PriorityQueue(maxSize);
+    public IPriorityQueue makePriorityQueue() {
+        return new PriorityQueue();
     }
 
 }

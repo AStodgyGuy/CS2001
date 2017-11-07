@@ -17,10 +17,9 @@ public interface IFactory {
 
     /**
      * This method creates an instance of {@link IPriorityQueue}.
-     * @param maxSize the maximum size of queue
      * @return the priority queue
      */
-    IPriorityQueue makePriorityQueue(int maxSize);
+    IPriorityQueue makePriorityQueue();
 
 
 }
