@@ -51,7 +51,7 @@ public class PriorityQueue implements IPriorityQueue {
                         //flag to determine when to shift all elements
                         if (flag) {
                             //priority is greater
-                            if (queueArray[i] == null || element.compareTo(queueArray[i]) > 0 ) {
+                            if (queueArray[i] == null || element.compareTo(queueArray[i]) > 0) {
                                 oldElement = queueArray[i];
                                 queueArray[i] = element;
                                 flag = false;
@@ -88,7 +88,7 @@ public class PriorityQueue implements IPriorityQueue {
             //the result to return
             Comparable result = queueArray[queueHead];
             Comparable oldElement = null;
-            Comparable oldElementRef = oldElement;
+            Comparable oldElementRef;
             //shift all elements of the queue up one
             for (int i = queueSize - 1; i >= queueHead; i--) {
                 oldElementRef = queueArray[i];

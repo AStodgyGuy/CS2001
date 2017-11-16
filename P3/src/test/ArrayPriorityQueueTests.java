@@ -82,7 +82,7 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     }
 
     /**
-     * Tests the clear() method and then adds more elements into the queue
+     * Tests the clear() method and then adds more elements into the queue.
      * @throws QueueFullException if the queue has reached max size
      */
     @Test
@@ -94,6 +94,25 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
         queue.enqueue(5);
         queue.enqueue(2);
         assertEquals(3, queue.size());
+    }
+
+    /**
+     * Test which enqueues and then dequeues.
+     * @throws QueueFullException if the queue has reached max size
+     * @throws QueueEmptyException if there are no elements in the queue to deque
+     */
+    @Test
+    public void testDequeueThenEnqueue() throws QueueFullException, QueueEmptyException {
+        IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
+        queue.enqueue(3);
+        queue.enqueue(5);
+        assertEquals(5, queue.dequeue());
+        queue.enqueue(10);
+        queue.enqueue(4);
+        queue.enqueue(2);
+        queue.enqueue(8);
+        assertEquals(5, queue.size());
+        assertEquals(10, queue.dequeue());
     }
 
     /**
@@ -118,7 +137,7 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     }
 
     /**
-     * Test that fills the queue and then dequeues all of it
+     * Test that fills the queue and then dequeues all of it.
      * @throws QueueFullException if the queue has reached max size
      * @throws QueueEmptyException if there are no elements to deque
      */
@@ -199,8 +218,8 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
 
     /**
      * Test for one enqueue and then two deque.
-     * @throws QueueEmptyException
-     * @throws QueueFullException
+     * @throws QueueFullException if the queue has reached max size
+     * @throws QueueEmptyException if there are no elements in the queue to deque
      */
     @Test (expected = QueueEmptyException.class)
     public void testOneEnqueueTwoDeque() throws QueueEmptyException, QueueFullException {
@@ -253,7 +272,7 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
         queue.enqueue(7);
         assertEquals(11, queue.dequeue());
         assertEquals(7, queue.dequeue());
-        assertEquals(6,queue.dequeue());
+        assertEquals(6, queue.dequeue());
         assertEquals(5, queue.dequeue());
     }
 
@@ -339,7 +358,7 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     }
 
     /**
-     * Test which puts null, integers and strings in the same queue test expected to throw ClassCastException
+     * Test which puts null, integers and strings in the same queue test expected to throw ClassCastException.
      * @throws QueueFullException if the queue is full
      * @throws QueueEmptyException if there are no elements in the que to deque
      */
@@ -355,7 +374,7 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     }
 
     /**
-     * Test which puts null and integers inside a queue and deques all elements
+     * Test which puts null and integers inside a queue and deques all elements.
      * @throws QueueFullException if the queue is full
      * @throws QueueEmptyException if there are no elements in the que to deque
      */
@@ -379,14 +398,14 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     }
 
     /**
-     * Test that puts TestObjects with a value of null inside a queue and dequeues them
+     * Test that puts TestObjects with a value of null inside a queue and dequeues them.
      * @throws QueueFullException if the queue is full
      * @throws QueueEmptyException if there are no elements in the que to deque
      */
     @Test
     public void testNullFieldInObject() throws QueueFullException, QueueEmptyException {
         IPriorityQueue queue = getFactory().makePriorityQueue(DEFAULT_MAX_SIZE);
-        TestObject object1 = new TestObject( "first");
+        TestObject object1 = new TestObject("first");
         TestObject object2 = new TestObject("second");
         TestObject object3 = new TestObject("third");
         queue.enqueue(object1);
@@ -404,7 +423,7 @@ public class ArrayPriorityQueueTests extends AbstractFactoryClient {
     /**
      * Class built for testing ordering of objects.
      */
-    private class TestObject implements Comparable<TestObject>{
+    private class TestObject implements Comparable<TestObject> {
 
         private int value;
         private String insertionValue;

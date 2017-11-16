@@ -133,10 +133,10 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
         doubleStack1.getFirstStack().push(1);
         doubleStack1.getFirstStack().push(2);
         doubleStack1.getFirstStack().push(3);
-        assertEquals(3,doubleStack1.getFirstStack().pop());
-        assertEquals(2,doubleStack1.getFirstStack().pop());
-        assertEquals(1,doubleStack1.getFirstStack().pop());
-        assertEquals(0,doubleStack1.getFirstStack().pop());
+        assertEquals(3, doubleStack1.getFirstStack().pop());
+        assertEquals(2, doubleStack1.getFirstStack().pop());
+        assertEquals(1, doubleStack1.getFirstStack().pop());
+        assertEquals(0, doubleStack1.getFirstStack().pop());
     }
 
     /**
@@ -151,10 +151,10 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
         doubleStack1.getSecondStack().push(1);
         doubleStack1.getSecondStack().push(2);
         doubleStack1.getSecondStack().push(3);
-        assertEquals(3,doubleStack1.getSecondStack().pop());
-        assertEquals(2,doubleStack1.getSecondStack().pop());
-        assertEquals(1,doubleStack1.getSecondStack().pop());
-        assertEquals(0,doubleStack1.getSecondStack().pop());
+        assertEquals(3, doubleStack1.getSecondStack().pop());
+        assertEquals(2, doubleStack1.getSecondStack().pop());
+        assertEquals(1, doubleStack1.getSecondStack().pop());
+        assertEquals(0, doubleStack1.getSecondStack().pop());
     }
 
     /**
@@ -173,14 +173,14 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
         doubleStack1.getSecondStack().push(1);
         doubleStack1.getSecondStack().push(2);
         doubleStack1.getSecondStack().push(3);
-        assertEquals(3,doubleStack1.getFirstStack().pop());
-        assertEquals(2,doubleStack1.getFirstStack().pop());
-        assertEquals(1,doubleStack1.getFirstStack().pop());
-        assertEquals(0,doubleStack1.getFirstStack().pop());
-        assertEquals(3,doubleStack1.getSecondStack().pop());
-        assertEquals(2,doubleStack1.getSecondStack().pop());
-        assertEquals(1,doubleStack1.getSecondStack().pop());
-        assertEquals(0,doubleStack1.getSecondStack().pop());
+        assertEquals(3, doubleStack1.getFirstStack().pop());
+        assertEquals(2, doubleStack1.getFirstStack().pop());
+        assertEquals(1, doubleStack1.getFirstStack().pop());
+        assertEquals(0, doubleStack1.getFirstStack().pop());
+        assertEquals(3, doubleStack1.getSecondStack().pop());
+        assertEquals(2, doubleStack1.getSecondStack().pop());
+        assertEquals(1, doubleStack1.getSecondStack().pop());
+        assertEquals(0, doubleStack1.getSecondStack().pop());
     }
 
     /**
@@ -248,7 +248,7 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
     }
 
     /**
-     * Test which adds null, integers and strings into a stack
+     * Test which adds null, integers and strings into a stack.
      * @throws StackOverflowException if the stack has no more space left
      * @throws StackEmptyException if the stack is empty
      */
@@ -321,7 +321,7 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
     }
 
     /**
-     * Test the clear() method
+     * Test the clear() method.
      * @throws StackOverflowException if the stack has no more space left
      */
     @Test
@@ -376,7 +376,7 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
     }
 
     /**
-     * Tests the top() method
+     * Tests the top() method.
      * @throws StackOverflowException if the stack has no more space left
      * @throws StackEmptyException if the stack is empty
      */
@@ -448,8 +448,7 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
     }
 
     /**
-     * Test is the same above, only rather than using stack one, stack two is used to show consistency across
-     * both stacks.
+     * Test is the same above, only rather than using stack one, stack two is used to show consistency across both stacks.
      * Test expected to run into exception since a size 0 DoubleSrack cannot contain any elements.
      * @throws StackOverflowException if the stack has no more space left
      */
@@ -459,6 +458,10 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
         doubleStack1.getSecondStack().push(0);
     }
 
+    /**
+     * Test which adds only null elements to stack one.
+     * @throws StackOverflowException if the stack has no more space left
+     */
     @Test (expected = StackOverflowException.class)
     public void testAddingOnlyNullToStackOne() throws StackOverflowException {
         IDoubleStack doubleStack1 = getFactory().makeDoubleStack(DEFAULT_MAX_SIZE);
@@ -475,6 +478,10 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
         doubleStack1.getFirstStack().push(null);
     }
 
+    /**
+     * Test which adds only null elements to stack two.
+     * @throws StackOverflowException if the stack has no more space left
+     */
     @Test (expected = StackOverflowException.class)
     public void testAddingOnlyNullToStackTwo() throws StackOverflowException {
         IDoubleStack doubleStack1 = getFactory().makeDoubleStack(DEFAULT_MAX_SIZE);
@@ -491,6 +498,10 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
         doubleStack1.getSecondStack().push(null);
     }
 
+    /**
+     * Test which fills stack one, clears it and then adds elements into stack two.
+     * @throws StackOverflowException if the stack has no more space left
+     */
     @Test
     public void testClearStackOneStackAndAddToStackTwo() throws StackOverflowException {
         IDoubleStack doubleStack1 = getFactory().makeDoubleStack(DEFAULT_MAX_SIZE);
@@ -517,6 +528,10 @@ public class ArrayDoubleStackTests extends AbstractFactoryClient {
         assertEquals(8, doubleStack1.getSecondStack().size());
     }
 
+    /**
+     * Test which fills stack two, clears it and then adds elements into stack one.
+     * @throws StackOverflowException if the stack has no more space left
+     */
     @Test
     public void testClearStackTwoStackAndAddToStackOne() throws StackOverflowException {
         IDoubleStack doubleStack1 = getFactory().makeDoubleStack(DEFAULT_MAX_SIZE);

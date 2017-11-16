@@ -53,9 +53,13 @@ public class Stack implements IStack {
             doubleStackArray[positionInArray] = new Object();
 
             if (isFirstStack) {
-                if (positionInArray + 1 < doubleStackArray.length) positionInArray++;
+                if (positionInArray + 1 < doubleStackArray.length) {
+                    positionInArray++;
+                }
             } else {
-                if (positionInArray - 1 >= 0) positionInArray--;
+                if (positionInArray - 1 >= 0) {
+                    positionInArray--;
+                }
             }
 
         } else {
@@ -71,14 +75,15 @@ public class Stack implements IStack {
      */
     @Override
     public Object pop() throws StackEmptyException {
-        if (stackArray.length > 0) {
+        //Double
+        if (doubleStackArray.length > 0) {
             //check if the stack is empty
             if (stackSize > 0) {
                 doubleStackArray[positionInArray] = null; //remove the object in the internal array
-                stackSize--;
                 Object result = stackArray[stackHead];
                 stackArray[stackHead] = null;
                 stackHead--;
+                stackSize--;
                 //change the pointer to reflect a removed object in the internal array
                 if (isFirstStack) {
                     positionInArray--;

@@ -11,7 +11,7 @@ public class Stack implements IStack {
 
     private boolean isFirstStack;
     private int positionInArray;
-    private  int stackSize;
+    private int stackSize;
     private StackNode head;
     private Object[] doubleStackArray;
 
