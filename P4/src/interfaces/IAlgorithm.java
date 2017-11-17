@@ -1,6 +1,6 @@
 package interfaces;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Interface for an Algorithm class which contains the algorithm specified at:
@@ -14,9 +14,9 @@ public interface IAlgorithm {
      * @param y the y-coord of the target
      * @param k the number of results to return
      * @param bs the list of coordinates
-     * @return the list of k elements that are closest to the target
+     * @return A map of k elements that are closest to the target
      */
-    ArrayList<ICoordinate> algorithmOne(int x, int y, int k, ArrayList<ICoordinate> bs);
+    IBeacon[] algorithmOne(int x, int y, int k, List<IBeacon> bs);
 
     /**
      * Method for algorithm 2 which inserts all and then sorts
@@ -24,9 +24,9 @@ public interface IAlgorithm {
      * @param y the y-coord of the target
      * @param k the number of results to return
      * @param bs the list of coordinates
-     * @return the list of k elements that are closest to the target
+     * @return A map of k elements that are closest to the target
      */
-    ArrayList<ICoordinate> algorithmTwo(int x, int y, int k, ArrayList<ICoordinate> bs);
+    IBeacon[] algorithmTwo(int x, int y, int k, List<IBeacon> bs);
 
     /**
      * Method for algorithm 3 which does not sort at all
@@ -34,8 +34,8 @@ public interface IAlgorithm {
      * @param y the y-coord of the target
      * @param k the number of results to return
      * @param bs the list of coordinates
-     * @return the list of k elements that are closest to the target
+     * @return A map of k elements that are closest to the target
      */
-    ArrayList<ICoordinate> algorithmThree(int x, int y, int k, ArrayList<ICoordinate> bs);
+    IBeacon[] algorithmThree(int x, int y, int k, List<IBeacon> bs);
 
 }
