@@ -20,6 +20,7 @@ public class Algorithm implements IAlgorithm {
      * @param bs the list of coordinates
      * @return A map of k elements that are closest to the target
      */
+    @Override
     public IBeacon[] algorithmOne(int x, int y, int k, List<IBeacon> bs) {
         BeaconComparator bc = new BeaconComparator();
         PriorityQueue<IBeacon> bpq = new PriorityQueue<>(bs.size(), bc);
